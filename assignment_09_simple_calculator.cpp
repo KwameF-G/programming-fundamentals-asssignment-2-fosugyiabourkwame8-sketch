@@ -174,7 +174,7 @@ int main() {
                     cout << "Invalid operation." << endl;
             }
         } else if (choice != 7) {
-            cout << "Invalid choice. Please select a valid operation." << endl;
+            cout << "Invalid choice. Please choose a valid operation." << endl;
         }
 
     } while (choice != 7);
