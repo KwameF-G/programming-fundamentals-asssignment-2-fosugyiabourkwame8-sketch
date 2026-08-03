@@ -96,7 +96,7 @@ int main() {
             printMultiplicationTablesUpToN(N);
         }
     } else {
-        cout << "Invalid choice. Please select 1 or 2." << endl;
+        cout << "Invalid choice. Please choose 1 or 2." << endl;
     }
 
     return 0;
