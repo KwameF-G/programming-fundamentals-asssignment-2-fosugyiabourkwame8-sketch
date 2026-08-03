@@ -73,3 +73,112 @@
 #include <cmath>
 using namespace std;
 
+int displayMenu();
+double add(double a, double b);
+double subtract(double a, double b);
+double multiply(double a, double b);
+double divide(double a, double b);
+double modulus(double a, double b);
+double exponent(double a, double b);
+
+int displayMenu() {
+    cout << "============================" << endl;
+    cout << "     SIMPLE CALCULATOR" << endl;
+    cout << "============================" << endl;
+    cout << "1. Addition" << endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Multiplication" << endl;
+    cout << "4. Division" << endl;
+    cout << "5. Modulus" << endl;
+    cout << "6. Exponentiation" << endl;
+    cout << "7. Quit" << endl;
+    cout << "Select an operation (1-7): ";
+
+    int choice;
+    cin >> choice;
+    return choice;
+}
+
+// Function to perform addition
+double add(double a, double b) {
+    return a + b;
+}
+
+// Function to perform subtraction
+double subtract(double a, double b) {
+    return a - b;
+}
+
+// Function to perform multiplication
+double multiply(double a, double b) {
+    return a * b;
+}
+
+// Function to perform division
+double divide(double a, double b) {
+    if (b == 0) {
+        cout << "Error: Cannot divide by zero." << endl;
+        return NAN;
+    }
+    return a / b;
+}
+
+// Function to perform modulus
+double modulus(double a, double b) {
+    if (b == 0) {
+        cout << "Error: Cannot calculate modulus by zero." << endl;
+        return NAN;
+    }
+    return fmod(a, b);
+}
+
+// Function to perform exponentiation
+double exponent(double a, double b) {
+    return pow(a, b);
+}
+
+int main() {
+    int choice;
+    do {
+        choice = displayMenu();
+
+        if (choice >= 1 && choice <= 6) {
+            double num1, num2;
+            cout << "Enter first number: ";
+            cin >> num1;
+            cout << "Enter second number: ";
+            cin >> num2;
+
+            double result;
+            switch (choice) {
+                case 1:
+                    result = add(num1, num2);
+                    cout << fixed << setprecision(2) << num1 << " + " << num2 << " = " << result << endl;
+                    break;
+                case 2:
+                    result = subtract(num1, num2);
+                    cout << fixed << setprecision(2) << num1 << " - " << num2 << " = " << result << endl;
+                    break;
+                case 3:
+                    result = multiply(num1, num2);
+                    cout << fixed << setprecision(2) << num1 << " * " << num2 << " = " << result << endl;
+                    break;
+                case 4:
+                    result = divide(num1, num2);
+                    if (!isnan(result)) {
+                        cout << fixed << setprecision(2) << num1 << " / " << num2 << " = " << result << endl;
+                    }
+                    break;
+                // Cases for modulus and exponentiation would go here
+                default:
+                    cout << "Invalid operation." << endl;
+            }
+        } else if (choice != 7) {
+            cout << "Invalid choice. Please select a valid operation." << endl;
+        }
+
+    } while (choice != 7);
+
+    cout << "Goodbye!" << endl;
+    return 0;
+}
